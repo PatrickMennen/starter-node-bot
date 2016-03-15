@@ -3,10 +3,10 @@ var wit = require('node-wit');
 var token = 'SRHS46GUPVLERG6MP65SYX33JHFKXRNM';
 
 // Expect a SLACK_TOKEN environment variable
-var slackToken = process.env.SLACK_TOKEN
+var slackToken = process.env.SLACK_TOKEN;
 if (!slackToken) {
-  console.error('SLACK_TOKEN is required!')
-  process.exit(1)
+  console.error('SLACK_TOKEN is required!');
+  process.exit(1);
 }
 
 var controller = Botkit.slackbot();
@@ -16,7 +16,7 @@ var bot = controller.spawn({
 
 bot.startRTM(function (err, bot, payload) {
   if (err) {
-    throw new Error('Could not connect to Slack')
+    throw new Error('Could not connect to Slack');
   }
 });
 
