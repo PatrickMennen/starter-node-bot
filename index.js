@@ -39,5 +39,12 @@ controller.hears('help', ['direct_message', 'direct_mention'], function (bot, me
 });
 
 controller.hears('.*', ['direct_message', 'direct_mention'], function (bot, message) {
-  bot.reply(message, 'Sorry <@' + message.user + '>, I don\'t understand. \n')
+  wit.captureTextIntent(token, message, function(error, result) {
+    if (err) { 
+      bot.reply('What\'s all this: `' + error + '`');
+      return;
+    }
+    bot.reply('You said `' + message + '` and I received' + result);
+  });
+  // bot.reply(message, 'Sorry <@' + message.user + '>, I don\'t understand. \n')
 });
